@@ -27,7 +27,7 @@ const CATALOG_DATA = [
     title: "Фото на документы",
     priceFrom: 750,
     from: false,
-    badge: "salon",
+    badge: "office",
     image: "assets/img/photo-documents.svg",
     imagePosition: "50% 42%",
     active: true,
@@ -51,7 +51,7 @@ const CATALOG_DATA = [
     title: "Копирование и сканирование",
     priceFrom: 50,
     from: true,
-    badge: "salon",
+    badge: "office",
     image: "assets/img/copy-scan.svg",
     imagePosition: "50% 40%",
     active: false
@@ -62,7 +62,7 @@ const CATALOG_DATA = [
     title: "Ламинирование",
     priceFrom: 250,
     from: true,
-    badge: "salon",
+    badge: "office",
     image: "assets/img/lamination.svg",
     imagePosition: "50% 50%",
     active: false
@@ -73,7 +73,7 @@ const CATALOG_DATA = [
     title: "Сшивание документов",
     priceFrom: 500,
     from: true,
-    badge: "salon",
+    badge: "office",
     image: "assets/img/binding.svg",
     imagePosition: "50% 50%",
     active: false
@@ -128,7 +128,7 @@ const CATALOG_DATA = [
     title: "Оцифровка",
     priceFrom: 750,
     from: true,
-    badge: "salon",
+    badge: "office",
     image: "assets/img/digitization.svg",
     imagePosition: "50% 55%",
     active: false
@@ -138,7 +138,7 @@ const CATALOG_DATA = [
 const BADGE_LABELS = {
   online: "Онлайн",
   request: "По заявке",
-  salon: "В салоне"
+  office: "В офисе"
 };
 
 window.CATALOG_DATA = CATALOG_DATA;

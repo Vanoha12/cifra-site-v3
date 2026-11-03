@@ -965,7 +965,7 @@
     els.orderTitle.textContent = "Заявка принята";
     els.orderForm.hidden = true;
     els.orderSuccess.hidden = false;
-    els.orderSuccessOffice.textContent = "Салон: " + orderInfo.office;
+    els.orderSuccessOffice.textContent = "Офис: " + orderInfo.office;
     els.orderSuccessTotal.textContent = money(orderInfo.total);
 
     if (archiveBlob) {
