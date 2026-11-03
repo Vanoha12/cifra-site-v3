@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F7F4EF">
+  <title>Фотоцентр «Цифра» — печать фото, документы и подарки</title>
+  <meta name="description" content="Печать фотографий, документы и подарки в Звенигороде и Голицыно. Онлайн-заказ печати фото и визит в салон.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Цифра — на главную">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40">
+            <rect width="40" height="40" rx="11" fill="#171717"/>
+            <text x="19" y="27.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#FFDD2D">Ц</text>
+            <circle cx="30" cy="10" r="2.6" fill="#FFDD2D"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>Цифра</strong>
+          <span>фотоцентр</span>
+        </span>
+      </a>
+
+      <div class="header-actions">
+        <a class="header-addresses" href="#contacts" aria-label="Адреса и контакты">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span class="header-addresses-text">Адреса</span>
+        </a>
+        <a class="header-phone" href="tel:+79253609890" aria-label="Позвонить: 8 (925) 360-98-90">8 (925) 360-98-90</a>
+        <button class="cart-button" type="button" data-open-cart aria-label="Корзина, 0">
+          <span class="cart-button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l1 12H4L5 8Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/></svg>
+          </span>
+          <span class="cart-button-text">Корзина</span>
+          <span class="cart-button-count" data-cart-count>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" aria-labelledby="heroTitle">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Звенигород · Голицыно</p>
+      <h1 id="heroTitle">Фотоцентр <span class="hero-brand">«Цифра»</span></h1>
+      <p class="hero-sub">Печать фото, документы и подарки в Звенигороде и Голицыно.</p>
+    </section>
+
+    <section class="catalog container" aria-labelledby="catalogTitle">
+      <div class="section-head">
+        <h2 id="catalogTitle">Услуги</h2>
+        <span class="section-meta">11 позиций</span>
+      </div>
+      <div class="catalog-grid" id="catalogGrid"></div>
+    </section>
+
+    <section class="contacts container" id="contacts" aria-labelledby="contactsTitle">
+      <div class="section-head">
+        <div>
+          <p class="contacts-eyebrow">Звенигород · Голицыно</p>
+          <h2 id="contactsTitle">Адреса и контакты</h2>
+        </div>
+        <span class="section-meta">5 салонов</span>
+      </div>
+      <p class="contacts-lead">Печатаем фото и документы, делаем фото на документы и принимаем онлайн-заказы. Забрать заказ можно в любом салоне.</p>
+
+      <div class="contacts-grid">
+        <article class="branch-card">
+          <p class="branch-city">Звенигород</p>
+          <h3><a href="https://yandex.ru/maps/org/tsifra/152001789233/?ll=36.876848%2C55.745103&z=16" target="_blank" rel="noopener noreferrer">мкр. Супонево, 3А</a></h3>
+          <p class="branch-hours">Пн–Пт 9:00–20:00<br>Сб–Вс 9:00–19:00</p>
+          <a class="branch-phone" href="tel:+79260407405">+7 926 040-74-05</a>
+        </article>
+
+        <article class="branch-card">
+          <p class="branch-city">Звенигород</p>
+          <h3><a href="https://yandex.ru/maps/org/tsifra/77149279996/?ll=36.856160%2C55.730766&z=16.79" target="_blank" rel="noopener noreferrer">ул. Комарова, 17</a></h3>
+          <p class="branch-hours">Пн–Пт 9:00–20:00<br>Сб–Вс 9:00–19:00</p>
+          <a class="branch-phone" href="tel:+79253609890">+7 925 360-98-90</a>
+        </article>
+
+        <article class="branch-card">
+          <p class="branch-city">Звенигород</p>
+          <h3><a href="https://yandex.ru/maps/org/tsifra/25248241582/?ll=36.857674%2C55.739498&z=16.72" target="_blank" rel="noopener noreferrer">ул. Белинского, 2</a></h3>
+          <p class="branch-hours">Пн–Пт 9:00–20:00<br>Сб–Вс 9:00–19:00</p>
+          <a class="branch-phone" href="tel:+79161431613">+7 916 143-16-13</a>
+        </article>
+
+        <article class="branch-card">
+          <p class="branch-city">Голицыно</p>
+          <h3><a href="https://yandex.ru/maps/org/tsifra/50295731178/?ll=36.985969%2C55.619218&z=16" target="_blank" rel="noopener noreferrer">Звенигородское ш., 16А</a></h3>
+          <p class="branch-hours">Ежедневно 9:00–19:00</p>
+          <a class="branch-phone" href="tel:+79264537003">+7 926 453-70-03</a>
+        </article>
+
+        <article class="branch-card">
+          <p class="branch-city">Голицыно</p>
+          <h3><a href="https://yandex.ru/maps/org/tsifra/145112737521/?ll=36.985844%2C55.628658&z=16" target="_blank" rel="noopener noreferrer">Советская ул., 1Б <span class="branch-note">(в МФЦ)</span></a></h3>
+          <p class="branch-hours">Ежедневно 9:00–20:00</p>
+          <a class="branch-phone" href="tel:+79256838300">+7 925 683-83-00</a>
+        </article>
+
+        <a class="branch-map" href="https://yandex.ru/maps/?ll=36.92%2C55.68&z=11&text=%D1%84%D0%BE%D1%82%D0%BE%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%20%D0%A6%D0%B8%D1%84%D1%80%D0%B0%20%D0%97%D0%B2%D0%B5%D0%BD%D0%B8%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%20%D0%93%D0%BE%D0%BB%D0%B8%D1%86%D1%8B%D0%BD%D0%BE" target="_blank" rel="noopener noreferrer" aria-label="Открыть карту пяти салонов «Цифра» в Яндекс.Картах">
+          <img src="assets/img/salons-map.svg" width="650" height="300" alt="Схема пяти салонов «Цифра» в Звенигороде и Голицыно">
+          <span class="branch-map-panel">
+            <span>
+              <span class="branch-map-label">Карта</span>
+              <span class="branch-map-title">5 салонов</span>
+            </span>
+            <span class="branch-map-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </span>
+          <span class="branch-map-credit">Схема</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <noscript>
+    <p class="noscript">Для работы витрины и корзины нужен JavaScript.</p>
+  </noscript>
+
+  <div class="overlay modal" id="printModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="printModalTitle">
+      <header class="modal-head">
+        <div class="modal-heading">
+          <span class="kicker">Печать фото</span>
+          <h2 id="printModalTitle">Печать фотографий</h2>
+          <span class="modal-price" id="printModalPrice">от 50 ₽</span>
+        </div>
+        <button class="icon-btn icon-btn--large" type="button" data-close-modal aria-label="Закрыть">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <div class="config-column">
+          <section class="config-section" aria-labelledby="sizeTitle">
+            <div class="section-line">
+              <h3 id="sizeTitle">Размер</h3>
+              <span class="field-note">Цена за отпечаток</span>
+            </div>
+            <div class="size-grid" id="sizeGrid"></div>
+          </section>
+
+          <section class="config-section" aria-labelledby="finishTitle">
+            <div class="section-line">
+              <h3 id="finishTitle">Отделка</h3>
+              <span class="field-note">Без наценки</span>
+            </div>
+            <div class="segmented" id="finishGroup" role="group" aria-label="Отделка">
+              <button type="button" class="segmented-btn is-active" data-finish="gloss" aria-pressed="true">Глянец</button>
+              <button type="button" class="segmented-btn" data-finish="matte" aria-pressed="false">Матовая</button>
+            </div>
+            <p class="option-note" id="finishNote" aria-live="polite">Глянец — ярче цвета, но заметны блики и отпечатки. Для пейзажей и рамок.</p>
+          </section>
+
+          <section class="config-section" aria-labelledby="qualityTitle">
+            <div class="section-line">
+              <h3 id="qualityTitle">Качество</h3>
+            </div>
+            <div class="segmented" id="qualityGroup" role="group" aria-label="Качество"></div>
+            <p class="option-note" id="qualityNote" aria-live="polite">Стандарт — плотная фотобумага для альбомов и домашней печати.</p>
+          </section>
+        </div>
+
+        <div class="upload-column">
+          <section class="config-section" aria-labelledby="uploadTitle">
+            <div class="section-line">
+              <h3 id="uploadTitle">Фотографии</h3>
+              <span class="count-pill" id="photoCount">0 / 30</span>
+            </div>
+            <button class="dropzone" type="button" id="dropzone" aria-describedby="uploadHint">
+              <span class="dropzone-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+              </span>
+              <span class="dropzone-title">Перетащите фото или выберите файлы</span>
+              <span class="dropzone-note" id="uploadHint">JPG, PNG, WebP · до 30 файлов · 25 МБ каждый · 80 МБ всего</span>
+            </button>
+            <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.webp,.heic,.heif,image/jpeg,image/png,image/webp,image/heic,image/heif" multiple hidden>
+          </section>
+
+          <section class="photos-section" aria-label="Загруженные фотографии">
+            <div class="photo-empty" id="photoEmpty">
+              <span class="photo-empty-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m4 17 5-5 4 4 2.5-2.5 4.5 4.5"/></svg>
+              </span>
+              <p>Добавьте фото — каждое получит 1 экземпляр. Количество можно изменить.</p>
+            </div>
+            <div class="photo-list" id="photoList" hidden></div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="modal-foot">
+        <div class="summary">
+          <span class="summary-count" id="summaryCount">0 фото · 0 отпечатков</span>
+          <span class="summary-config" id="summaryConfig">10×15 · Глянец · Стандарт</span>
+        </div>
+        <div class="summary-total-wrap">
+          <span class="summary-total" id="summaryTotal">0 ₽</span>
+          <button class="btn btn-accent" type="button" id="addToCart" disabled>Добавить в корзину</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <div class="overlay modal" id="docPhotoModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-doc-photo></div>
+    <div class="modal-dialog modal-dialog--info" id="docPhotoDialog" role="dialog" aria-modal="true" aria-labelledby="docPhotoTitle">
+      <header class="modal-head">
+        <div class="modal-heading">
+          <span class="kicker">Документы</span>
+          <h2 id="docPhotoTitle">Фото на документы</h2>
+          <span class="modal-price">750 ₽</span>
+        </div>
+        <button class="icon-btn icon-btn--large" type="button" data-close-doc-photo aria-label="Закрыть">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+
+      <div class="modal-body modal-body--info">
+        <div class="info-media">
+          <img src="assets/img/photo-documents.svg" alt="Иллюстрация услуги «Фото на документы»">
+        </div>
+        <div class="info-copy">
+          <p>Делаем фото на паспорт, загранпаспорт, визу, права, пропуск и учебные документы. Подберём фон, кадр и пропорции под требования и проверим результат.</p>
+          <h3>Что пригодится</h3>
+          <ul>
+            <li>Документ — только если нужен нетипичный размер или особые требования. Обычно можно без него.</li>
+            <li>Очки, если вы обычно носите их на фото.</li>
+            <li>Требования к снимку, если их выдало ведомство.</li>
+          </ul>
+          <p class="info-note"><strong>Только в салоне.</strong> Онлайн-заказ и корзина для этой услуги не предусмотрены.</p>
+        </div>
+      </div>
+
+      <footer class="modal-foot modal-foot--info">
+        <a class="btn btn-ghost" href="#contacts" data-close-doc-photo data-scroll-contacts>Адреса и контакты</a>
+        <button class="btn btn-accent" type="button" data-close-doc-photo>Понятно</button>
+      </footer>
+    </div>
+  </div>
+
+  <div class="overlay modal" id="docPrintModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-doc-print></div>
+    <div class="modal-dialog" id="docPrintDialog" role="dialog" aria-modal="true" aria-labelledby="docPrintTitle">
+      <header class="modal-head">
+        <div class="modal-heading">
+          <span class="kicker">Документы</span>
+          <h2 id="docPrintTitle">Печать документов A4</h2>
+          <span class="modal-price">от 25 ₽ за лист</span>
+        </div>
+        <button class="icon-btn icon-btn--large" type="button" data-close-doc-print aria-label="Закрыть">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <div class="config-column">
+          <section class="config-section" aria-labelledby="docColorTitle">
+            <div class="section-line">
+              <h3 id="docColorTitle">Печать</h3>
+              <span class="field-note" id="docPriceNote">A4 · 25 ₽ / лист</span>
+            </div>
+            <div class="segmented" id="docColorGroup" role="group" aria-label="Тип печати">
+              <button type="button" class="segmented-btn is-active" data-doc-color="bw" aria-pressed="true">Ч/б</button>
+              <button type="button" class="segmented-btn" data-doc-color="color" aria-pressed="false">Цветная</button>
+            </div>
+            <p class="option-note" id="docColorNote" aria-live="polite">Ч/б — для текстов, договоров и справок. 25 ₽ за лист.</p>
+          </section>
+
+          <section class="config-section" aria-labelledby="docCountTitle">
+            <div class="section-line">
+              <h3 id="docCountTitle">Как считаем</h3>
+            </div>
+            <div class="doc-guidance">
+              <p>Один файл — один документ. Для PDF и Word укажите число страниц, копии — у каждого файла.</p>
+              <p>Итоговое количество листов и стоимость посчитаются автоматически.</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="upload-column">
+          <section class="config-section" aria-labelledby="docUploadTitle">
+            <div class="section-line">
+              <h3 id="docUploadTitle">Файлы</h3>
+              <span class="count-pill" id="docCount">0 / 30</span>
+            </div>
+            <button class="dropzone" type="button" id="docDropzone" aria-describedby="docUploadHint">
+              <span class="dropzone-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+              </span>
+              <span class="dropzone-title">Перетащите файлы или выберите</span>
+              <span class="dropzone-note" id="docUploadHint">PDF, Word, JPG, PNG, WebP · до 30 файлов · 25 МБ каждый · 80 МБ всего</span>
+            </button>
+            <input type="file" id="docFileInput" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp" multiple hidden>
+          </section>
+
+          <section class="photos-section" aria-label="Загруженные документы">
+            <div class="photo-empty" id="docEmpty">
+              <span class="photo-empty-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4 4V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z"/><path d="M14 3.5V8h4M9 12h5M9 15.5h5"/></svg>
+              </span>
+              <p>Добавьте PDF или изображение. Для каждого файла можно указать страницы и копии.</p>
+            </div>
+            <div class="doc-list" id="docList" hidden></div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="modal-foot">
+        <div class="summary">
+          <span class="summary-count" id="docSummaryCount">0 файлов · 0 листов</span>
+          <span class="summary-config" id="docSummaryConfig">A4 · Ч/б</span>
+        </div>
+        <div class="summary-total-wrap">
+          <span class="summary-total" id="docTotal">0 ₽</span>
+          <button class="btn btn-accent" type="button" id="docAddToCart" disabled>Добавить в корзину</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <div class="overlay cart-overlay" id="cartDrawer" aria-hidden="true">
+    <div class="cart-backdrop" data-close-cart></div>
+    <aside class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <header class="cart-head">
+        <div class="cart-heading">
+          <span class="kicker">Заказ</span>
+          <h2 id="cartTitle">Корзина <span class="cart-head-count" id="cartCount">0</span></h2>
+        </div>
+        <button class="icon-btn icon-btn--large" type="button" data-close-cart aria-label="Закрыть корзину">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+
+      <div class="cart-body">
+        <div class="cart-empty" id="cartEmpty">
+          <span class="cart-empty-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l1 12H4L5 8Z"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9"/></svg>
+          </span>
+          <h3>Корзина пока пуста</h3>
+          <p>Добавьте печать фотографий или документов — они настроены для онлайн-заказа.</p>
+          <button class="btn btn-dark" type="button" data-close-cart>К услугам</button>
+        </div>
+        <div class="cart-list" id="cartList" hidden></div>
+      </div>
+
+      <footer class="cart-foot">
+        <div class="cart-total-row">
+          <span>Итого</span>
+          <strong id="cartTotal">0 ₽</strong>
+        </div>
+        <button class="btn btn-accent btn-block" type="button" id="checkout" disabled>Оформить</button>
+        <p class="checkout-note" id="checkoutNote" hidden>Это демо-корзина. Оформление и оплата появятся на следующем этапе.</p>
+      </footer>
+    </aside>
+  </div>
+
+  <div class="overlay modal order-overlay" id="orderModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-order></div>
+    <div class="modal-dialog order-dialog" id="orderDialog" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+      <header class="modal-head">
+        <div class="modal-heading">
+          <span class="kicker">Заказ</span>
+          <h2 id="orderTitle">Оформление заказа</h2>
+          <span class="modal-price">Итого: <b id="orderTotal">0 ₽</b></span>
+        </div>
+        <button class="icon-btn icon-btn--large" type="button" data-close-order aria-label="Закрыть оформление заказа">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+
+      <form class="order-form" id="orderForm" novalidate>
+        <div class="modal-body order-body">
+          <p class="order-lead">Выберите салон и оставьте контакты — перезвоним и подтвердим заказ.</p>
+
+          <div class="field">
+            <label for="orderOffice">Офис получения <span class="req">*</span></label>
+            <select class="field-input field-select" id="orderOffice" name="office" required aria-describedby="orderOfficeError">
+              <option value="">Выберите салон</option>
+              <option value="Звенигород, мкр. Супонево, 3А">Звенигород, мкр. Супонево, 3А</option>
+              <option value="Звенигород, ул. Комарова, 17">Звенигород, ул. Комарова, 17</option>
+              <option value="Звенигород, ул. Белинского, 2">Звенигород, ул. Белинского, 2</option>
+              <option value="Голицыно, Звенигородское ш., 16А">Голицыно, Звенигородское ш., 16А</option>
+              <option value="Голицыно, Советская ул., 1Б (в МФЦ)">Голицыно, Советская ул., 1Б (в МФЦ)</option>
+            </select>
+            <p class="field-error" id="orderOfficeError" role="alert" hidden></p>
+          </div>
+
+          <details class="order-addresses">
+            <summary>Посмотреть адреса и часы</summary>
+            <ul>
+              <li><strong>Звенигород, мкр. Супонево, 3А</strong><span>Пн–Пт 9:00–20:00, Сб–Вс 9:00–19:00</span></li>
+              <li><strong>Звенигород, ул. Комарова, 17</strong><span>Пн–Пт 9:00–20:00, Сб–Вс 9:00–19:00</span></li>
+              <li><strong>Звенигород, ул. Белинского, 2</strong><span>Пн–Пт 9:00–20:00, Сб–Вс 9:00–19:00</span></li>
+              <li><strong>Голицыно, Звенигородское ш., 16А</strong><span>Ежедневно 9:00–19:00</span></li>
+              <li><strong>Голицыно, Советская ул., 1Б (в МФЦ)</strong><span>Ежедневно 9:00–20:00</span></li>
+            </ul>
+          </details>
+
+          <div class="field">
+            <label for="orderName">ФИО <span class="req">*</span></label>
+            <input class="field-input" id="orderName" name="fullname" type="text" autocomplete="name" maxlength="100" placeholder="Иванова Анна Сергеевна" required aria-describedby="orderNameError">
+            <p class="field-error" id="orderNameError" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="orderPhone">Телефон <span class="req">*</span></label>
+            <input class="field-input" id="orderPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" placeholder="+7 ___ ___-__-__" required aria-describedby="orderPhoneError">
+            <p class="field-error" id="orderPhoneError" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="orderComment">Комментарий</label>
+            <textarea class="field-input field-textarea" id="orderComment" name="comment" maxlength="1000" placeholder="Пожелания, удобное время, ссылка на облако"></textarea>
+          </div>
+
+          <div class="order-consent-wrap">
+            <label class="order-consent" for="orderConsent">
+              <input id="orderConsent" name="consent" type="checkbox" required aria-describedby="orderConsentError">
+              <span>Даю согласие на обработку персональных данных и принимаю <a href="politika.html" target="_blank" rel="noopener noreferrer">политику конфиденциальности</a>. <span class="req">*</span></span>
+            </label>
+            <p class="field-error" id="orderConsentError" role="alert" hidden></p>
+          </div>
+        </div>
+
+        <footer class="modal-foot order-foot">
+          <p class="order-demo">Демо-режим: данные не отправляются.</p>
+          <div class="order-actions">
+            <button class="btn btn-ghost" type="button" data-close-order>Назад</button>
+            <button class="btn btn-accent" type="submit">Подтвердить заказ</button>
+          </div>
+        </footer>
+      </form>
+
+      <div class="order-success" id="orderSuccess" hidden>
+        <span class="order-success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+        </span>
+        <h3>Заявка принята</h3>
+        <p>Это демо-режим: данные не отправлены. В реальной версии мы перезвоним по указанному телефону и подтвердим заказ.</p>
+        <p class="order-success-office" id="orderSuccessOffice"></p>
+        <p class="order-success-total">Итого: <b id="orderSuccessTotal">0 ₽</b></p>
+        <p class="order-success-archive" id="orderArchiveNote" hidden></p>
+        <div class="order-success-actions">
+          <button class="btn btn-ghost" type="button" id="downloadOrderArchive" hidden>Скачать архив заказа</button>
+          <button class="btn btn-accent" type="button" data-close-order>Понятно</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay crop-overlay" id="cropOverlay" aria-hidden="true">
+    <div class="crop-backdrop" data-close-crop></div>
+    <div class="crop-panel" role="dialog" aria-modal="true" aria-labelledby="cropTitle">
+      <header class="crop-head">
+        <div class="crop-heading">
+          <span class="kicker">Кадрирование</span>
+          <h2 id="cropTitle">Кадр</h2>
+          <span class="crop-photo-name" id="cropPhotoName">photo.jpg</span>
+        </div>
+        <div class="crop-head-side">
+          <span class="crop-size-badge" id="cropSize">10×15</span>
+          <button class="icon-btn icon-btn--large" type="button" data-close-crop aria-label="Закрыть кадрирование">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="crop-canvas-area" id="cropCanvasArea">
+        <div class="crop-stage" id="cropStage">
+          <canvas id="cropCanvas"></canvas>
+        </div>
+      </div>
+
+      <div class="crop-body">
+        <div class="crop-meta">
+          <span id="cropResolution">0 × 0 px</span>
+          <span aria-hidden="true">·</span>
+          <span id="cropQuality"></span>
+        </div>
+
+        <div class="segmented segmented--wide" id="cropModes" role="group" aria-label="Режим кадрирования">
+          <button type="button" class="segmented-btn is-active" data-mode="cover" aria-pressed="true">Без полей</button>
+          <button type="button" class="segmented-btn" data-mode="contain" aria-pressed="false">С полями</button>
+        </div>
+
+        <div class="crop-controls">
+          <label class="range-field" for="cropZoom">
+            <span>Масштаб <b id="cropZoomLabel">100%</b></span>
+            <input type="range" id="cropZoom" min="100" max="300" step="1" value="100">
+          </label>
+          <div class="crop-buttons">
+            <button type="button" class="btn btn-ghost btn-sm" id="cropRotate">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 1-2.3-5.7"/><path d="M20 4v7h-7"/></svg>
+              Повернуть <span id="cropAngle">0°</span>
+            </button>
+            <button type="button" class="btn btn-ghost btn-sm" id="cropReset">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a8 8 0 1 0 2.3-5.7"/><path d="M4 4v7h7"/></svg>
+              Сбросить
+            </button>
+          </div>
+        </div>
+
+        <p class="crop-hint" id="cropHint">Перетащите фото, чтобы выбрать кадр. Масштаб — колесиком, ползунком или двумя пальцами.</p>
+        <p class="crop-warning" id="cropWarning" hidden></p>
+      </div>
+
+      <footer class="crop-foot">
+        <div class="crop-nav" id="cropNav" hidden>
+          <button class="icon-btn" type="button" id="cropPrev" aria-label="Предыдущее фото">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>
+          </button>
+          <span class="crop-nav-label" id="cropNavLabel" aria-live="polite">1 / 1</span>
+          <button class="icon-btn" type="button" id="cropNext" aria-label="Следующее фото">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="crop-foot-actions">
+          <button type="button" class="btn btn-ghost" data-close-crop>Отмена</button>
+          <button type="button" class="btn btn-accent" data-apply-crop>Готово</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="assets/js/catalog-data.js"></script>
+  <script src="assets/js/archive.js"></script>
+  <script src="assets/js/crop.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

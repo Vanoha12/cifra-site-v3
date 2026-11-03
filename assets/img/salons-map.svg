@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 300">
+  <rect width="650" height="300" fill="#EFEAE1"/>
+  <path d="M0 224 C90 208 126 248 205 230 C278 214 318 250 396 224 C465 201 512 230 650 196 V300 H0 Z" fill="#DCE5D8"/>
+  <path d="M0 84 C78 104 120 76 184 96 C251 117 298 92 360 108 C429 126 505 100 650 122" fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round"/>
+  <path d="M98 0 C112 51 82 92 96 137 C109 178 86 226 104 300" fill="none" stroke="#FFFFFF" stroke-width="12"/>
+  <path d="M300 0 C286 58 307 111 293 164 C280 215 307 257 292 300" fill="none" stroke="#FFFFFF" stroke-width="12"/>
+  <path d="M492 0 C479 60 507 103 496 152 C486 196 510 248 498 300" fill="none" stroke="#FFFFFF" stroke-width="12"/>
+  <path d="M0 168 H650" fill="none" stroke="#FFFFFF" stroke-width="9"/>
+  <path d="M0 262 C99 248 153 278 242 262 C331 247 405 276 503 257 C565 245 605 255 650 247" fill="none" stroke="#BBD4DA" stroke-width="8" stroke-linecap="round"/>
+  <path d="M184 96 C230 128 272 152 292 190" fill="none" stroke="#E4DCCF" stroke-width="5" stroke-dasharray="8 8"/>
+  <text x="58" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="3" fill="#8A857C">ЗВЕНИГОРОД</text>
+  <text x="454" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="3" fill="#8A857C">ГОЛИЦЫНО</text>
+  <g>
+    <path d="M118 116 C118 102 129 92 143 92 C157 92 168 102 168 116 C168 134 143 158 143 158 C143 158 118 134 118 116Z" fill="#FFDD2D" stroke="#171717" stroke-width="2"/>
+    <circle cx="143" cy="114" r="6" fill="#171717"/>
+    <path d="M175 126 C175 114 184 106 195 106 C206 106 215 114 215 126 C215 140 195 160 195 160 C195 160 175 140 175 126Z" fill="#FFDD2D" stroke="#171717" stroke-width="2"/>
+    <circle cx="195" cy="124" r="5" fill="#171717"/>
+    <path d="M206 74 C206 64 214 56 224 56 C234 56 242 64 242 74 C242 86 224 104 224 104 C224 104 206 86 206 74Z" fill="#171717"/>
+    <circle cx="224" cy="73" r="4.5" fill="#FFDD2D"/>
+  </g>
+  <g>
+    <path d="M464 136 C464 122 475 112 489 112 C503 112 514 122 514 136 C514 154 489 178 489 178 C489 178 464 154 464 136Z" fill="#FFDD2D" stroke="#171717" stroke-width="2"/>
+    <circle cx="489" cy="134" r="6" fill="#171717"/>
+    <path d="M540 166 C540 153 550 144 563 144 C576 144 586 153 586 166 C586 183 563 204 563 204 C563 204 540 183 540 166Z" fill="#171717"/>
+    <circle cx="563" cy="165" r="5" fill="#FFDD2D"/>
+  </g>
+</svg>
