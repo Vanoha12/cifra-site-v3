@@ -769,6 +769,92 @@
     return safe || fallback;
   }
 
+  function archiveFolderPart(value) {
+    return String(value == null ? "" : value)
+      .replace(/[\\/:*?"<>|]+/g, "-")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function archiveFolderName(parts, fallback) {
+    const folder = parts
+      .map(archiveFolderPart)
+      .filter(Boolean)
+      .join("-")
+      .slice(0, 90);
+    return folder || fallback;
+  }
+
+  function photoArchiveFolder(archive) {
+    const sizeId = archive.sizeId || "10x15";
+    const finish = FINISH_LABELS[archive.finish] || "Глянец";
+    const quality = QUALITY_LABELS[archive.quality] || "Стандарт";
+    return archiveFolderName([sizeId, finish, quality], "Фото");
+  }
+
+  function docArchiveFolder(archive) {
+    const format = archive.format || "A4";
+    const color = archive.colorKey === "color" ? "Цветная" : "ЧБ";
+    return archiveFolderName([format, color], "Документы-A4");
+  }
+
+  function canvasArchiveFolder(archive) {
+    const sizeId = archive.sizeId || archive.size || "30x40";
+    return archiveFolderName(["Холст", sizeId], "Холст");
+  }
+
+  function archiveFolderFor(item) {
+    if (item.kind === "photo") return photoArchiveFolder(item.archive || {});
+    if (item.kind === "doc") return docArchiveFolder(item.archive || {});
+    if (item.kind === "canvas") return canvasArchiveFolder(item.archive || {});
+    return archiveFolderName([item.title], "Заказ");
+  }
+
+  function archiveFolderDescription(item) {
+    if (item.kind === "photo") {
+      const archive = item.archive || {};
+      return [
+        archive.sizeLabel || "10×15",
+        FINISH_LABELS[archive.finish] || "Глянец",
+        QUALITY_LABELS[archive.quality] || "Стандарт"
+      ].join(" · ");
+    }
+    if (item.kind === "doc") {
+      const archive = item.archive || {};
+      return (
+        "Документы " +
+        (archive.format || "A4") +
+        " · " +
+        (archive.colorKey === "color" ? "Цветная" : "Ч/б")
+      );
+    }
+    if (item.kind === "canvas") {
+      const archive = item.archive || {};
+      return "Холст · " + (archive.sizeLabel || archive.sizeId || "30×40");
+    }
+    return item.title;
+  }
+
+  function archiveQuantityPrefix(quantity) {
+    const count = Number.parseInt(quantity, 10);
+    return (Number.isFinite(count) && count > 0 ? count : 1) + "_";
+  }
+
+  function uniqueArchiveFileName(used, name) {
+    const dot = name.lastIndexOf(".");
+    const base = dot > 0 ? name.slice(0, dot) : name;
+    const extension = dot > 0 ? name.slice(dot) : "";
+    let candidate = name;
+    let suffix = 2;
+
+    while (used.has(candidate.toLowerCase())) {
+      candidate = base + "-" + suffix + extension;
+      suffix += 1;
+    }
+    used.add(candidate.toLowerCase());
+    return candidate;
+  }
+
   function dataUrlToBytes(url) {
     const base64 = String(url).split(",")[1] || "";
     const binary = atob(base64);
@@ -814,12 +900,29 @@
 
     const entries = [];
     const lines = [];
-    let photoIndex = 0;
-    let docIndex = 0;
+    const folderStats = new Map();
+    const folderNames = new Map();
+
+    function folderUsedNames(folder) {
+      if (!folderNames.has(folder)) folderNames.set(folder, new Set());
+      return folderNames.get(folder);
+    }
+
+    function rememberFolder(folder, item) {
+      if (!folderStats.has(folder)) {
+        folderStats.set(folder, {
+          files: 0,
+          quantity: 0,
+          description: archiveFolderDescription(item)
+        });
+      }
+      const stat = folderStats.get(folder);
+      stat.files += 1;
+      stat.quantity += item.qty;
+    }
 
     for (const item of orderInfo.items) {
       if (item.kind === "photo" && item.archive) {
-        photoIndex += 1;
         const archive = item.archive;
         let dataUrl = null;
 
@@ -834,9 +937,16 @@
         if (!dataUrl && item.preview) dataUrl = item.preview;
         if (!dataUrl) continue;
 
+        const folder = archiveFolderFor(item);
         const base = safeArchiveBase(archive.name, "photo");
-        const fileName = "photos/" + String(photoIndex).padStart(2, "0") + "_" + base + ".jpg";
-        entries.push({ name: fileName, data: await resourceToBytes(dataUrl) });
+        const fileName = uniqueArchiveFileName(
+          folderUsedNames(folder),
+          archiveQuantityPrefix(item.qty) + base + ".jpg"
+        );
+        const archivePath = folder + "/" + fileName;
+
+        entries.push({ name: archivePath, data: await resourceToBytes(dataUrl) });
+        rememberFolder(folder, item);
         lines.push(
           "- " +
             item.title +
@@ -845,10 +955,9 @@
             "; экз.: " +
             item.qty +
             "; файл: " +
-            fileName
+            archivePath
         );
       } else if (item.kind === "doc" && item.archive) {
-        docIndex += 1;
         const archive = item.archive;
         const source = archive.file;
 
@@ -857,15 +966,18 @@
           continue;
         }
 
-        const fileName =
-          "documents/" +
-          String(docIndex).padStart(2, "0") +
-          "_" +
-          safeArchiveFileName(archive.name, "document");
+        const folder = archiveFolderFor(item);
+        const fileName = uniqueArchiveFileName(
+          folderUsedNames(folder),
+          archiveQuantityPrefix(item.qty) + safeArchiveFileName(archive.name, "document")
+        );
+        const archivePath = folder + "/" + fileName;
+
         entries.push({
-          name: fileName,
+          name: archivePath,
           data: new Uint8Array(await source.arrayBuffer())
         });
+        rememberFolder(folder, item);
         lines.push(
           "- " +
             item.title +
@@ -874,12 +986,62 @@
             "; копий: " +
             item.qty +
             "; файл: " +
-            fileName
+            archivePath
+        );
+      } else if (item.kind === "canvas" && item.archive) {
+        const archive = item.archive;
+        let dataUrl = item.preview || null;
+
+        if (archive.image && archive.crop && archive.ratio) {
+          try {
+            dataUrl = CropEditor.renderPreview(archive.image, archive.crop, archive.ratio, 2400) || dataUrl;
+          } catch (error) {
+            dataUrl = item.preview || null;
+          }
+        }
+
+        if (!dataUrl) continue;
+
+        const folder = archiveFolderFor(item);
+        const base = safeArchiveBase(archive.name, "canvas");
+        const fileName = uniqueArchiveFileName(
+          folderUsedNames(folder),
+          archiveQuantityPrefix(item.qty) + base + ".jpg"
+        );
+        const archivePath = folder + "/" + fileName;
+
+        entries.push({ name: archivePath, data: await resourceToBytes(dataUrl) });
+        rememberFolder(folder, item);
+        lines.push(
+          "- " +
+            item.title +
+            ": " +
+            item.meta +
+            "; экз.: " +
+            item.qty +
+            "; файл: " +
+            archivePath
         );
       }
     }
 
-    const manifest = [
+    const folderLines = Array.from(folderStats.entries()).map(function (entry) {
+      const folder = entry[0];
+      const stat = entry[1];
+      return (
+        "- " +
+        folder +
+        "/ — файлов: " +
+        stat.files +
+        ", экз.: " +
+        stat.quantity +
+        " (" +
+        stat.description +
+        ")"
+      );
+    });
+
+    const manifestParts = [
       "Заказ (демо)",
       "Дата: " + new Date().toLocaleString("ru-RU"),
       "Офис: " + orderInfo.office,
@@ -890,12 +1052,16 @@
       "Итого: " + money(orderInfo.total),
       "",
       "Содержимое архива:",
-      "photos/ — фотографии после кадрирования",
-      "documents/ — исходные файлы документов",
+      "Файлы разложены по папкам с параметрами печати.",
+      "В начале имени файла — количество экземпляров: 2_фото.jpg.",
+      "",
+      "Папки:",
+      ...folderLines,
       "",
       "Позиции:",
       ...lines
-    ].join("\r\n");
+    ];
+    const manifest = manifestParts.join("\r\n");
 
     entries.unshift({
       name: "order.txt",
@@ -913,7 +1079,7 @@
     state.orderArchiveName = fileName;
     els.orderArchiveNote.hidden = false;
     els.orderArchiveNote.textContent =
-      "Архив с файлами заказа готов: кропы фото, документы и order.txt. Если скачивание не началось автоматически, нажмите «Скачать архив заказа».";
+      "Архив с файлами заказа готов: папки по параметрам печати, количество экземпляров в имени файла и order.txt. Если скачивание не началось автоматически, нажмите «Скачать архив заказа».";
     els.downloadOrderArchive.hidden = false;
   }
 
@@ -1684,7 +1850,9 @@
           file: file.file,
           name: file.name,
           pages: file.pages,
-          color: colorLabel
+          color: colorLabel,
+          colorKey: state.docColor,
+          format: "A4"
         }
       });
       sheets += file.pages * file.copies;
@@ -1734,7 +1902,11 @@
           image: photo.image,
           crop: snapshotCrop(crop),
           ratio: ratio,
-          name: photo.name
+          name: photo.name,
+          sizeId: size.id,
+          sizeLabel: sizeTitle(size),
+          finish: state.finish,
+          quality: state.quality
         }
       });
     });
@@ -1774,7 +1946,8 @@
   function cartMetaText(item) {
     const base = item.meta || "";
     if (item.kind !== "photo") return base;
-    return base + (base ? " · " : "") + item.qty + " стр.";
+    const prints = item.qty + " " + plural(item.qty, "отпечаток", "отпечатка", "отпечатков");
+    return base + (base ? " · " : "") + prints;
   }
 
   function cartLineTemplate(item) {
